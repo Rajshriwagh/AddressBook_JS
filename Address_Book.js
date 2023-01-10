@@ -125,7 +125,7 @@ for (let i = 0; i < arr.length; i++) {
 }
 console.log("-------------------------");
 //UC4: Editing contacts using the name
-function editContacts(contact) {
+/*function editContacts(contact) {
     let firstName = prompt4("Enter the First Name is:");
     contact.firstName = firstName;
     let lastName = prompt4("Enter the last Name is:");
@@ -184,5 +184,11 @@ function contactChecker(firstNamedelete, check) {
         return check;
     }
 
-}
+}*/
 printArray();
+let count=countContacts();
+console.log("total count of contacts are: "+count)
+function countContacts(){
+    return arr.map(contact => contact._firstName)
+    .reduce((start,firstName)=>start+=1,0);
+}

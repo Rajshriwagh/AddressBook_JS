@@ -194,6 +194,7 @@ function countContacts(){
     return arr.map(contact => contact._firstName)
     .reduce((start,firstName)=>start+=1,0);
 }
+//UC8:Search by City or State
 searchPersonthroughCityorstate();
 function searchPersonthroughCityorstate() {
     let parameter = prompt4("Select Search Parameter 1. City 2. State :");
@@ -204,4 +205,14 @@ function searchPersonthroughCityorstate() {
         let state = prompt4("Enter the State to Search Person :");
         console.log(arr.filter(contact => contact._state == state).map(contact => contact));
     }
+}
+countByCityState();
+function countByCityState() {
+    let cityArr = new Array();
+    let stateArr = new Array();
+    arr.forEach(contact => cityArr[contact._city] ? cityArr[contact._city] += 1 : cityArr[contact._city] = 1);
+   arr.forEach(contact => stateArr[contact._state] ? stateArr[contact._state] += 1 : stateArr[contact._state] = 1);
+
+    console.log("City Counts :"+cityArr);
+    console.log("State Counts :"+stateArr);
 }
